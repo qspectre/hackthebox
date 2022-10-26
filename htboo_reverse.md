@@ -62,6 +62,9 @@ In IDA, we see a `get_flag` method. Although I could have looked over it there, 
 
 ![image](https://user-images.githubusercontent.com/115867891/198062679-11f434dd-f5c7-4932-9f4b-4674db91a120.png)
 
+If we look at eax register, we see: ![image](https://user-images.githubusercontent.com/115867891/198065482-4989f9e1-c163-40a9-8e9f-0f33bce2b54c.png)
+--> which is hopefully 'H' (from HTB{...})
+
 Therefore, if we see a xor eax, 0x13, it means we can use `CyberChef` to xor all our chars wit 0x13. So we get:
 ![image](https://user-images.githubusercontent.com/115867891/198062947-99c1f8d1-218f-4df6-8cb0-190f7622123d.png)
 
