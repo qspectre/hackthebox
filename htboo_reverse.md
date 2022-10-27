@@ -68,7 +68,7 @@ If we look at eax register, we see: ![image](https://user-images.githubuserconte
 Therefore, if we see a xor eax, 0x13, it means we can use `CyberChef` to xor all our chars wit 0x13. So we get:
 ![image](https://user-images.githubusercontent.com/115867891/198062947-99c1f8d1-218f-4df6-8cb0-190f7622123d.png)
 
-Flag is `HTB{h4unt3d_by_th3_gh0st5_0f_ctf5_p45t!}.`
+Flag is `HTB{h4unt3d_by_th3_gh0st5_0f_ctf5_p45t!}`
 
 
 ## Encoded Payload
@@ -98,7 +98,7 @@ We figure out that there is a loop there (`jne 0x8048079`), so after stepping th
 A few instruction further, we also see the flag in the debugger.
 ![image](https://user-images.githubusercontent.com/115867891/198265907-31e5a126-1424-4cd5-8d84-6cbc2b52df30.png)
 
-Flag is `echo HTB{PLz_strace_M333}`
+Flag is `HTB{PLz_strace_M333}`
 
 
 ## Ouija
