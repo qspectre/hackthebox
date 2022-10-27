@@ -141,3 +141,24 @@ print(flag)
 The output (and flag) is `HTB{Adding_sleeps_to_your_code_makes_it_easy_to_optimize_later!}`
 
 
+## Secured transfer
+
+We are given 2 files. An ELF binary (again...) and a .pcap file.
+
+The dissasembly in IDA reveals a few things. 
+- how to use `./securetransfer'
+- 2 functions that use `OPENSSL` encryption/decryption
+- the salt (`someinitialvalue`) and key (`supersecretkeyusedforencryption!`)
+
+Inside the pcap, we see a TCP handshake, followed by an exchange of bytes, specifically in the [FIN, PSH, ACK] packet, where we find the following hex dump: `5f558867993dccc99879f7ca39c5e406972f84a3a9dd5d48972421ff375cb18c`.
+
+![image](https://user-images.githubusercontent.com/115867891/198320229-867f1bc7-88f3-4565-aea2-1ea87e6d4f6d.png)
+
+There are 2 methods here to find the flag. 
+
+The not-so-good one is to use `./securetransfer 127.0.0.1 some_file` in one console and `./securetransfer` in another, and check your own encrypted text, maybe you can brute force the flag.
+
+The better one is to understand that the encryption algorithm uses AES encryption, CBC cipher mode and 256 size key. Therefore, using https://www.devglan.com/online-tools/aes-encryption-decryption I plugged in the details -- hex dump, CBC, salt and key found in IDA -- and the output is base64 string `SFRCe3ZyeVMzQ3VSM19GMUwzX1RSNG5zZjNyfQ==` which decoded is:
+
+`HTB{vryS3CuR3_F1L3_TR4nsf3r}`
+
