@@ -73,7 +73,7 @@ Flag is `HTB{h4unt3d_by_th3_gh0st5_0f_ctf5_p45t!}.`
 
 ## Encoded Payload
 
-This was done with Andrei Santoma, where we both brought something on the table.
+This was done with Andrei Santoma, where we both brought something to the table.
 
 If we dissasemble the code in IDA, we see the following instructions:
 
